@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.6" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Features\Clientes\Commands\DeleteClienteCommand\" />
+    <Folder Include="Features\Clientes\Commands\UpdateClienteCommand\" />
+    <Folder Include="Features\Clientes\Querys\GetAllClientes\" />
+    <Folder Include="Features\Clientes\Querys\GetClienteById\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+</Project>
