@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Common
 {
+    //Clase abstracta de la cual heredan todas las entidades o models 
     public abstract class AuditableBaseEntity
     {
 
@@ -15,7 +16,10 @@ namespace Domain.Common
 
         public DateTime Created { get; set; }
 
-        public string LastModified { get; set; }
+        public string LastModifiedBy { get; set; }
+
+
+        public DateTime LastModified { get; set; }
 
 
     }

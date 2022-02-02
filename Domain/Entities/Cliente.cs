@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Cliente:AuditableBaseEntity
+
+
+    public class Cliente:AuditableBaseEntity
     {
 
         private int _edad;

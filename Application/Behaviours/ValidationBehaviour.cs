@@ -17,6 +17,7 @@ namespace Application.Behaviours
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
 
+        //Constructor
         public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
         {
 
@@ -27,7 +28,7 @@ namespace Application.Behaviours
 
 
 
-
+        //Método que se implementa de la interfaz 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
 
@@ -50,5 +51,6 @@ namespace Application.Behaviours
             return await next();
 
         }
+
     }
 }

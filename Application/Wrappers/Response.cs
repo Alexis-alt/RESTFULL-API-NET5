@@ -14,6 +14,8 @@ namespace Application.Wrappers
 
         }
 
+
+        //Constructor cuando se procesa sin errores 
         public Response(T data, string message = null)
         {
 

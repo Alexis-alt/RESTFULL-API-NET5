@@ -1,17 +1,12 @@
 using Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Persistence;
+using Shared;
 
 namespace WebAPI
 {
@@ -27,11 +22,19 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
+
+
+
             //Vienen de Core de la Aplicacion
             //Referencia a los servicios necesarios para el funcionamiento
             //Startup necesita de el asi que tiene que matricularlo
             services.AddApplicationLayer();
 
+            services.AddSharedInfraestructure(Configuration);
+
+            services.AddPersitenceInfraestructure(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
