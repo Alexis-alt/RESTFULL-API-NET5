@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.Wrappers
 {
+    //Clase que es modelo para regresar una respuesta, la cual contiene un Success, Mensaje y Data
+
     public class Response<T>
     {
 
@@ -30,6 +32,8 @@ namespace Application.Wrappers
         }
 
 
+
+        //Constructor que se usa para indicar un error 
         public Response(string message)
         {
 

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Application
 {
-    //Agrupa las inyecciones de todos los servicios propios o de terceros
+    //Agrupa las inyecciones de todos los servicios propios o de terceros que se contengan en este proyecto para despues referenciarlos en startup y este pueda usarlos
 
     public static class ServiceExtensions
     {

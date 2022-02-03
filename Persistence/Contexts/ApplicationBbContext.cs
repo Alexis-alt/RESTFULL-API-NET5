@@ -32,6 +32,9 @@ namespace Persistence.Contexts
 
         public DbSet<Cliente> Clientes { get; set; }
 
+        //EL método SaveChanges heredado de la clase DBContext es un método virtual, lo cual indica que clases que lo hererden pueden modificarlo (métodos con el mismo nombre y diferentes funcionalidades)
+        //Métodos abstractos unicamnete indican que tienen que serimplementado en las subClases
+        //Métodos con new ignoran la existencia de otro método parecido en la ClasePadre
 
 
         //Modificamos el método SaveChangesAsync para que cada vez que se guarde o edite un registro y se guarden los cambios, tambien se guarde la fecha
@@ -65,7 +68,9 @@ namespace Persistence.Contexts
 
             }
 
-            //Guarda los datos y regresa un int con el id del registro que se afectó
+      
+            //Usamos el método original (El cual tiene 2 sobrecargas) proveniente de DbContext para guardar en BD 
+            //Recordando que nos retorna un int (id del registro afectado)
             return SaveChangesAsync(cancellationToken);
 
 
@@ -74,13 +79,15 @@ namespace Persistence.Contexts
 
 
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+                                                          //El ensamblado detecta/scanea todas las clases que forman parte del proyecto  
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }
+
+
 
     }
 }

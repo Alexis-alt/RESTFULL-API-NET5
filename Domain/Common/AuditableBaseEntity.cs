@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Domain.Common
 {
     //Clase abstracta de la cual heredan todas las entidades o models 
+    //Es comun para todos los modelos o entidades debido a que cuentan con un id y propiedades de modificación
     public abstract class AuditableBaseEntity
     {
 

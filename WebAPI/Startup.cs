@@ -7,19 +7,31 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Shared;
+using WebAPI.Extensions;
 
 namespace WebAPI
 {
     public class Startup
     {
+
+
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+
+
         public IConfiguration Configuration { get; }
 
+
+
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
+        //Servicio: Modulo reusable que provee funcionalidades (Paquetes nuget o configuración para inyectar)
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -43,6 +55,12 @@ namespace WebAPI
             });
         }
 
+
+
+
+
+        //Middleware
+        //Filtros o tuberías que se agregan antes de que la solicitud llegue al servidor o una vez que ha salido de el como una respuesta
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -58,6 +76,10 @@ namespace WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+
+            //Pipe construido para validar solicitudes antes de que lleguen al servidor
+            app.UseErrorHandleMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
