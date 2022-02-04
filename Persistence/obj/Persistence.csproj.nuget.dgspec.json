@@ -37,7 +37,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

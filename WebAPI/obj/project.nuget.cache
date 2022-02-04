@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lgw1DfqNQprulOUjvcwcqvTVtOMVrEw9qBoVfRu66LY/gmeEn9WMQgpYrEnRBLrBqJeSZQbxk5WZ/TwpZSbTUg==",
+  "dgSpecHash": "D7aN7vNc8CsaUQYj0FsX5qxIDdw8Rgs+CNInWltdiISdOgCXvTkPTOLJwnzIcEOd4WbwPohMvCuPC0o4E07gAw==",
   "success": true,
   "projectFilePath": "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\alexi\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
+    "C:\\Users\\alexi\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

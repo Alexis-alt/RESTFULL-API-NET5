@@ -1,4 +1,7 @@
-﻿using Application.Wrappers;
+﻿using Application.Interfaces;
+using Application.Wrappers;
+using AutoMapper;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Threading;
@@ -28,6 +31,12 @@ namespace Application.Features.Clientes.Commands.CreateClienteCommand
 
     }
 
+
+
+
+
+
+
     //CLASE MEDIADORA O MANEJADORA
     //El controller llamará a esta clase manejadora o mediadora
 
@@ -35,9 +44,26 @@ namespace Application.Features.Clientes.Commands.CreateClienteCommand
     public class CreateClienteCommandHandler : IRequestHandler<CreateClienteCommand, Response<int>>
     {
 
+        //Referencia al modelo o entidad
+        private readonly IRespositoryAsync<Cliente> _respositoryAsync;
+
+        private readonly IMapper _mapper;
+
+   
+
+        public CreateClienteCommandHandler(IRespositoryAsync<Cliente> respositoryAsync,IMapper mapper)
+        {
+            _respositoryAsync = respositoryAsync;
+
+            _mapper = mapper;
+        }
+
+
+
+
 
         //Este método se implementa de la interfaz IRequestHandler<TRequest,TResponse>
-        
+        //Implemeta toda la logica de negocio
 
         //Este método devuelve una objeto del tipo response
         /*
@@ -49,9 +75,22 @@ namespace Application.Features.Clientes.Commands.CreateClienteCommand
 
          
          */
-        public Task<Response<int>> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+
+                                        //Mapeame a 
+                                                    //Lo que venga en la solicitud o request
+            var nuevoRegistro = _mapper.Map<Cliente>(request);
+                                              //Añade el registro
+            var data = await _respositoryAsync.AddAsync(nuevoRegistro);
+
+
+            //Mandamos a una sobrecarga de ctor el id 
+            //Debe ser int porque al instanciar la Clase indicamos que el T debe ser int
+
+            //Se retorna una respuesta 
+            return new Response<int>(data.Id);
+
         }
     }
 

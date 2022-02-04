@@ -78,6 +78,9 @@ namespace WebAPI
             app.UseAuthorization();
 
 
+
+
+
             //Pipe construido para validar solicitudes antes de que lleguen al servidor
             app.UseErrorHandleMiddleware();
 

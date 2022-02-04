@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-   public  interface IRespositoryAsync<T>:IReadRepositoryBase<T> where T: class
+   public  interface IRespositoryAsync<T>:IRepositoryBase<T> where T: class
     {
 
 

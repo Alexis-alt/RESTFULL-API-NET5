@@ -13,3 +13,5 @@ C:\Users\alexi\Documents\GitHub\SoftwareGym\Shared\obj\Debug\net5.0\Shared.cspro
 C:\Users\alexi\Documents\GitHub\SoftwareGym\Shared\obj\Debug\net5.0\Shared.dll
 C:\Users\alexi\Documents\GitHub\SoftwareGym\Shared\obj\Debug\net5.0\ref\Shared.dll
 C:\Users\alexi\Documents\GitHub\SoftwareGym\Shared\obj\Debug\net5.0\Shared.pdb
+C:\Users\alexi\Documents\GitHub\SoftwareGym\Shared\bin\Debug\net5.0\Domain.dll
+C:\Users\alexi\Documents\GitHub\SoftwareGym\Shared\bin\Debug\net5.0\Domain.pdb
