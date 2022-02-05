@@ -7,46 +7,18 @@ using Persistence.Repository;
 
 namespace Persistence
 {
-    //Todos los servicios de extension se referencian en el Startup 
-
-
     public static class ServiceExtensions
     {
-
-        public static void AddPersitenceInfraestructure(this IServiceCollection services,IConfiguration config)
+        public static void AddPersistenceInfraestructure(this IServiceCollection services, IConfiguration configuration)
         {
-
-
-            //Obteniendo la cadena de conexión
-
             services.AddDbContext<ApplicationBbContext>(options => options.UseSqlServer(
-
-                config.GetConnectionString("DeffaultConnection"),
-                b => b.MigrationsAssembly(typeof(ApplicationBbContext).Assembly.FullName)
-                ));
+                configuration.GetConnectionString("DeffaultConnection"),
+                b => b.MigrationsAssembly(typeof(ApplicationBbContext).Assembly.FullName)));
 
             #region Repositories
-
-
-
-            //Configuramos el IRepository para poder inyectarse
-
-                                  //Indicamos que la clase Respository implementa la Interfaz IRepositoruAsync 
-                                  //Ambas son genericas recibiendo una clase(Modelo/Entidad) como parmetro y adaptandole los métodos que implementa la interfaz 
-            services.AddTransient(typeof(IRespositoryAsync<>),typeof(Repository<>));
-
-
-
+            services.AddTransient(typeof(IRepositoryAsync<>), typeof(MyRepositoryAsync<>));
             #endregion
 
-
-
-
-
-
         }
-
-
-
     }
 }

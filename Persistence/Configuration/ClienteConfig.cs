@@ -32,7 +32,7 @@ namespace Persistence.Configuration
                 .HasMaxLength(80)
                 .IsRequired();
 
-                builder.Property(p => p.Apellidos)
+                builder.Property(p => p.Apellido)
                .HasMaxLength(80)
                .IsRequired();
 

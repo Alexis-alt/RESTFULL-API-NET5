@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Shared;
+using System.Text.Json.Serialization;
 using WebAPI.Extensions;
 
 namespace WebAPI
@@ -46,9 +47,12 @@ namespace WebAPI
 
             services.AddSharedInfraestructure(Configuration);
 
-            services.AddPersitenceInfraestructure(Configuration);
-
+            services.AddPersistenceInfraestructure(Configuration);
             services.AddControllers();
+                     
+
+            services.AddApiVersioningExtension();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
@@ -78,11 +82,8 @@ namespace WebAPI
             app.UseAuthorization();
 
 
-
-
-
             //Pipe construido para validar solicitudes antes de que lleguen al servidor
-            app.UseErrorHandleMiddleware();
+            app.UseErrorHandlingMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

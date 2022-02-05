@@ -1,9 +1,5 @@
-﻿using Application.Features.Clientes.Commands.CreateClienteCommand;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Feautres.Clientes.Commands.CreateClienteCommand;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -12,7 +8,7 @@ namespace WebAPI.Controllers
 
     [ApiVersion("1.0")]
 
-    public class ClienteController : BaseApiController
+    public class ClientesController : BaseApiController
     {
 
         //Toda la logica en el Core
@@ -24,10 +20,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Post(CreateClienteCommand command)
         {
 
-
-
-
-            return Ok(Mediator.Send(command));
+            return Ok(await Mediator.Send(command));
         }
 
 

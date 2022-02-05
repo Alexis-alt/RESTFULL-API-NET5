@@ -60,7 +60,6 @@ namespace Persistence.Contexts
                         
                         break;
 
-                    default: break;
 
                 }
 
@@ -71,7 +70,9 @@ namespace Persistence.Contexts
       
             //Usamos el método original (El cual tiene 2 sobrecargas) proveniente de DbContext para guardar en BD 
             //Recordando que nos retorna un int (id del registro afectado)
-            return SaveChangesAsync(cancellationToken);
+            
+            
+            return base.SaveChangesAsync(cancellationToken);
 
 
         }
