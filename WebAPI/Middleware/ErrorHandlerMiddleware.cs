@@ -17,17 +17,27 @@ namespace WebAPI.Middlewares
             _next = next;
         }
 
+
+
+
+        //Método que se ejecuta en el Middleware
+
         public async Task Invoke(HttpContext context)
         {
+
+            //Si no se encuentran problemas
             try
             {
+                //Sique al siguiente filtro/pipe que se aplica en el Middleware
                 await _next(context);
             }
             catch (Exception error)
             {
+
+                //Cuando se encuentra una exception
                 var response = context.Response;
                 response.ContentType = "application/json";
-                var responseModel = new Response<string>() { Success = false, Message = error?.Message };
+                var responseModel = new Response<string>() { Succeeded = false, Message = error?.Message };
 
                 switch (error)
                 {

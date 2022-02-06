@@ -2,8 +2,14 @@
 
 namespace Application.Feautres.Clientes.Commands.CreateClienteCommand
 {
+                                                                   //Obj que se va a validar proveniente del Cliente
     public class CreateClienteCommandValidator : AbstractValidator<CreateClienteCommand>
     {
+        //Clase que hereda de una Clase del paquete FluentVlidation
+
+        //Se encarga se validar en el Middleware que los campos necesarios para un Command o Query esten correctos
+        //Si no estan correctos se envia un mensaje con el error del dato
+
         public CreateClienteCommandValidator()
         {
             RuleFor(p => p.Nombre)
