@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Middlewares
 {
+    //Personalizando una respuesta Http para cuando se prosuce un error en el Middleware
+
     public class ErrorHandlerMiddleware
     {
         private readonly RequestDelegate _next;
 
+
+        //Recibimos la solicitud del cliente
         public ErrorHandlerMiddleware(RequestDelegate next)
         {
             _next = next;
@@ -29,6 +33,8 @@ namespace WebAPI.Middlewares
             try
             {
                 //Sique al siguiente filtro/pipe que se aplica en el Middleware
+                //En este caso ejecuta el método de la clase VlidationBehaviour el cual se encarga de verificar validacioes en la request del cliente
+
                 await _next(context);
             }
             catch (Exception error)
