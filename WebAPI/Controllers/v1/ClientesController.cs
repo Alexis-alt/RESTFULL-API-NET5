@@ -1,5 +1,6 @@
 ﻿using Application.Features.Clientes.Commands.DeleteClienteCommand;
 using Application.Features.Clientes.Commands.UpdateClienteCommand;
+using Application.Features.Clientes.Querys.GetAllClientes;
 using Application.Features.Clientes.Querys.GetClienteByIdQuery;
 using Application.Feautres.Clientes.Commands.CreateClienteCommand;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,24 @@ namespace WebAPI.Controllers.v1
     [ApiVersion("1.0")]
     public class ClientesController : BaseApiController
     {
+
+
+        //GET All con paginación y filtros por Nombre o Apellidos
+        [HttpGet]
+
+
+
+                                                        //GetAllClientesParametres es una Clase que guarda todos los filtros para la busqueda(Nombre y Apellido) 
+                                                        //Hereda de Requestparameters donde se encuentran parametros genrales (NumberPage y PageSize)´para la paginación
+        public async Task<IActionResult> Get([FromQuery] GetAllClientesParameters filter)
+        {
+
+            //Se envia la request al Handler
+            return Ok(await Mediator.Send(new GetAllClientesQuery { PageNumber= filter.PageNumber,PageSize=filter.PageSize,Nombre = filter.Nombre,Apellidos=filter.Apellidos }));
+
+        }
+
+
 
         //GET api/<controller> By Id
 

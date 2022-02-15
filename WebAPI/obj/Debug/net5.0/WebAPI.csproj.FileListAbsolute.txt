@@ -100,3 +100,8 @@ C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\obj\Debug\net5.0\WebAPI.dll
 C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
+C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\bin\Debug\net5.0\StackExchange.Redis.dll
+C:\Users\alexi\Documents\GitHub\SoftwareGym\WebAPI\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
