@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Identity.Models
 {
+
+
+                               //Hereda propiedades de IdentityUser para crear un usuario
    public class ApplicationUser:IdentityUser
     {
         public string Nombre { get; set; }

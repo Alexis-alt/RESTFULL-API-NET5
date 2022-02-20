@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Identity.Contexts
 {
+    //Autenticación
     public class IdentityContext:IdentityDbContext<ApplicationUser>
     {
 
