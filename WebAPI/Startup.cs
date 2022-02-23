@@ -1,4 +1,5 @@
 using Application;
+using Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -44,6 +45,8 @@ namespace WebAPI
             //Referencia a los servicios necesarios para el funcionamiento
             //Startup necesita de el asi que tiene que matricularlo
             services.AddApplicationLayer();
+
+            services.AddIdentityInfraestructure(Configuration);
 
             services.AddSharedInfraestructure(Configuration);
 
