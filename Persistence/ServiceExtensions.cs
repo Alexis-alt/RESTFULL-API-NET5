@@ -15,10 +15,14 @@ namespace Persistence
                 configuration.GetConnectionString("DeffaultConnection"),
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+
             #region Repositories
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(MyRepositoryAsync<>));
             #endregion
 
+
+
+            //Uso de redis
             #region Catchig
 
 

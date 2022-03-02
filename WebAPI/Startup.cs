@@ -82,6 +82,9 @@ namespace WebAPI
 
             app.UseRouting();
 
+            //Agregamos este pipe
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
 
