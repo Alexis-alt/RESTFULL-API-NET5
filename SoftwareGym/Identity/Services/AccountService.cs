@@ -140,6 +140,7 @@ namespace Identity.Services
             {
                 //Se crea el usuario
                 var result = await _userManager.CreateAsync(usuario, request.Password);
+
                 if (result.Succeeded)
                 {
                     //Se le asigna el rol 
@@ -149,6 +150,7 @@ namespace Identity.Services
                 }
                 else
                 {
+                    //Manejar mejor los errores debido a que viene en lista
                     throw new ApiException($"{result.Errors}.");
                 }
             }

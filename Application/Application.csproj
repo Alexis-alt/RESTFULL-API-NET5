@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Usuarios\Commands\DeleteCommand\" />
+    <Folder Include="Features\Usuarios\Commands\UpdateCommand\" />
     <Folder Include="Filters\" />
   </ItemGroup>
 

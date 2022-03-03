@@ -32,6 +32,7 @@ namespace WebAPI.Controllers
                 Password = request.Password,
                 ConfirmPassword = request.ConfirmPassword,
                 UserName = request.UserName,
+                //Header de la solicitud
                 Origin = Request.Headers["origin"]
             }));
         }
