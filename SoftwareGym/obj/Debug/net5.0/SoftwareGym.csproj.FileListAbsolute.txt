@@ -1,0 +1,5 @@
+C:\Users\alexi\Documents\Github\SoftwareGym\SoftwareGym\obj\Debug\net5.0\SoftwareGym.csproj.AssemblyReference.cache
+C:\Users\alexi\Documents\Github\SoftwareGym\SoftwareGym\obj\Debug\net5.0\SoftwareGym.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexi\Documents\Github\SoftwareGym\SoftwareGym\obj\Debug\net5.0\SoftwareGym.AssemblyInfoInputs.cache
+C:\Users\alexi\Documents\Github\SoftwareGym\SoftwareGym\obj\Debug\net5.0\SoftwareGym.AssemblyInfo.cs
+C:\Users\alexi\Documents\Github\SoftwareGym\SoftwareGym\obj\Debug\net5.0\SoftwareGym.csproj.CoreCompileInputs.cache

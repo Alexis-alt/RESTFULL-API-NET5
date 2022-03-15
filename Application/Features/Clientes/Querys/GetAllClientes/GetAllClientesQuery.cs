@@ -79,6 +79,7 @@ namespace Application.Features.Clientes.Querys.GetAllClientes
                     //Extraemos de bd con las especificaciones necesarias
                     listadoClientes = await _repositoryAsync.ListAsync(new PagedClientesSpecifications(request.PageSize, request.PageNumber, request.Nombre, request.Apellidos));
 
+                    
                     //Convertimos a JSON
                     serializedEstadoClientes = JsonConvert.SerializeObject(listadoClientes);
 

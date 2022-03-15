@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj": {}
+    "C:\\Users\\alexi\\Documents\\Github\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj": {
+    "C:\\Users\\alexi\\Documents\\Github\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj",
+        "projectUniqueName": "C:\\Users\\alexi\\Documents\\Github\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj",
         "projectName": "SoftwareGym",
-        "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj",
+        "projectPath": "C:\\Users\\alexi\\Documents\\Github\\SoftwareGym\\SoftwareGym\\SoftwareGym.csproj",
         "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\SoftwareGym\\SoftwareGym\\obj\\",
+        "outputPath": "C:\\Users\\alexi\\Documents\\Github\\SoftwareGym\\SoftwareGym\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",

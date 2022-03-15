@@ -1,12 +1,16 @@
-﻿using Application.DTOs.Users;
+﻿ using Application.DTOs.Users;
 using Application.Enums;
 using Application.Exceptions;
+using Application.Features.Usuarios.Commands.DeleteUserCommand;
+using Application.Features.Usuarios.Commands.UpdateUserCommand;
 using Application.Interfaces;
 using Application.Wrappers;
 using Domain.Settings;
+using Identity.Contexts;
 using Identity.Helpers;
 using Identity.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -24,28 +28,32 @@ namespace Identity.Services
 
 
 
-    public class AccountService : IAccountService
+    public  class AccountService : IAccountService
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IdentityContext _context;
 
-                        //Clase implementadora del patron options que extrae los datos del JWT del JSON
+        //Clase implementadora del patron options que extrae los datos del JWT del JSON
         private readonly JWTSettings _jwtSettings;
         private readonly IDateTimeService _dateTimeService;
 
 
         //Constructor
-        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jwtSettings, IDateTimeService dateTimeService)
+        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jwtSettings, IDateTimeService dateTimeService, IdentityContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _jwtSettings = jwtSettings.Value;
             _dateTimeService = dateTimeService;
+            _context = context;
         }
 
 
+
+        #region Commands
 
         //Negocio para Autenticar un usuario 
         public async Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request, string ipAddress)
@@ -104,6 +112,39 @@ namespace Identity.Services
             return new Response<AuthenticationResponse>(response, $"Usuario Autenticado {usuario.UserName}");
         }
 
+        //Negocio para Borrar usuario
+        public async Task<Response<string>> DeleteUserAsync(DeleteUserCommand request)
+        {
+            var userToDelete = await _userManager.FindByIdAsync(request.IdUser);
+
+            if (userToDelete == null)
+            {
+                throw new KeyNotFoundException($"Usuario no encontrado con el Id: {request.IdUser}");
+
+            }
+            else
+            {
+
+                var result = await _userManager.DeleteAsync(userToDelete);
+
+                if (result.Succeeded)
+                {
+                    return new Response<string>(userToDelete.UserName, "Se eliminó correctamente");
+
+                }
+                else
+                {
+
+                    throw new ApiException($"{result.Errors}.");
+
+
+                }
+
+
+            }
+
+        }
+
         //Negocio para registrar un usuario
         public async Task<Response<string>> RegisterAsync(RegisterRequest request, string origin)
         {
@@ -155,6 +196,78 @@ namespace Identity.Services
                 }
             }
         }
+
+        //Negocio para Actualizar usuario
+        public async Task<Response<string>> UpdateUserAsync(UpdateUserCommand request)
+        {
+
+            var userToModify = await _userManager.FindByIdAsync(request.IdUser);
+
+            if (userToModify == null)
+            {
+                throw new KeyNotFoundException($"Usuario no encontrado con el Id: {request.IdUser}");
+
+
+            }
+            else
+            {
+
+                userToModify.Nombre = request.Nombre;
+                userToModify.Apellido = request.Apellido;
+                userToModify.Email = request.Email;
+                userToModify.UserName = request.UserName;
+
+                var result = await _userManager.UpdateAsync(userToModify);
+
+                if (result.Succeeded)
+                {
+
+                    return new Response<string>(userToModify.Id, message: $"Usuario modificado exitosamente. {request.UserName}");
+
+
+                }
+                else
+                {
+                    throw new ApiException($"{result.Errors}.");
+
+
+                }
+
+
+
+            }
+
+        }
+
+
+        #endregion
+
+
+
+        #region Querys
+
+        public async Task<Response<List<UsuarioDto>>> GetAllUsers()
+        {
+
+            var lstUsers = await (from user in _context.Users
+                                  join userRoles in _context.UserRoles on user.Id equals userRoles.UserId
+                                  join role in _context.Roles on userRoles.RoleId equals role.Id
+                                  select new UsuarioDto(user.Id,user.Nombre,user.Apellido,user.UserName,user.PasswordHash,user.Email,role.Id,role.Name))
+                        .ToListAsync();
+
+
+            return new Response<List<UsuarioDto>>(lstUsers);
+
+
+        }
+
+        
+
+
+        #endregion
+
+
+
 
 
         //Método privado para generar el Token al usuario
@@ -216,10 +329,7 @@ namespace Identity.Services
             //Retornamos el TOKEN
             return jwtSecurityToken;
         }
-    
-       
-        
-        
+   
         
         private RefreshToken GenerateRefreshToken(string ipAddress)
         {
@@ -234,6 +344,8 @@ namespace Identity.Services
 
 
 
+
+
         private string RandomTokenString()
         {
             using var rngCryptoServiceProvider = new RNGCryptoServiceProvider();
@@ -241,5 +353,15 @@ namespace Identity.Services
             rngCryptoServiceProvider.GetBytes(randomBytes);
             return BitConverter.ToString(randomBytes).Replace("-", "");
         }
+
+
+
+
+
+
+
+
     }
+
+  
 }

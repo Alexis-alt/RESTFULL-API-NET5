@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Usuarios\Commands\DeleteCommand\**" />
+    <Compile Remove="Features\Usuarios\Commands\UpdateCommand\**" />
+    <EmbeddedResource Remove="Features\Usuarios\Commands\DeleteCommand\**" />
+    <EmbeddedResource Remove="Features\Usuarios\Commands\UpdateCommand\**" />
+    <None Remove="Features\Usuarios\Commands\DeleteCommand\**" />
+    <None Remove="Features\Usuarios\Commands\UpdateCommand\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Ardalis.Specification" Version="5.1.0" />
     <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -16,8 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Usuarios\Commands\DeleteCommand\" />
-    <Folder Include="Features\Usuarios\Commands\UpdateCommand\" />
+    <Folder Include="Features\Usuarios\Querys\GetUsuarioById\" />
     <Folder Include="Filters\" />
   </ItemGroup>
 

@@ -16,7 +16,7 @@ namespace WebAPI
     public class Startup
     {
 
-
+        readonly string MiCors = "MiCors";
 
 
         public Startup(IConfiguration configuration)
@@ -56,6 +56,20 @@ namespace WebAPI
 
             services.AddApiVersioningExtension();
 
+            services.AddCors(options => {
+
+                options.AddPolicy(name: MiCors,
+                  builder =>
+                  {
+                      builder.WithHeaders("*");//post
+                      builder.WithOrigins("*");//get
+                      builder.WithMethods("*");
+                  }
+                  );
+
+
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
@@ -79,6 +93,7 @@ namespace WebAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(MiCors);
 
             app.UseRouting();
 
